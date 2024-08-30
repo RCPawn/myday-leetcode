@@ -1,6 +1,14 @@
 package day01;
 
 public class OneEditAway {
+    /*
+        字符串有三种编辑操作:插入一个英文字符、删除一个英文字符或者替换一个英文字符。
+        给定两个字符串，编写一个函数判定它们是否只需要一次(或者零次)编辑。
+
+        示例
+            输入: s1 = "pales", s2 = "pal"
+            输出: False
+     */
     public static void main(String[] args) {
         String s1 = "pales", s2 = "pal";
         System.out.println(oneEditAway(s1, s2));
