@@ -1,9 +1,5 @@
 package day10;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-
 public class MkeGood {
     /*
         给你一个由大小写英文字母组成的字符串 s 。
@@ -39,6 +35,7 @@ public class MkeGood {
     public static String makeGood(String s) {
         StringBuilder sb = new StringBuilder();
         for (char ch : s.toCharArray()) {
+            // 判断两个字符的 ASCII 值差的绝对值是否等于 32。
             if (sb.length() > 0 && Math.abs(ch - sb.charAt(sb.length() - 1)) == 32)
                 sb.deleteCharAt(sb.length() - 1);
             else
@@ -47,13 +44,16 @@ public class MkeGood {
         return sb.toString();
     }
 
+    // 方法二：
     public static String makeGood1(String s) {
         StringBuilder ret = new StringBuilder();
         int retIndex = -1;
         int length = s.length();
         for (int i = 0; i < length; i++) {
             char ch = s.charAt(i);
-            if (ret.length() > 0 && Character.toLowerCase(ret.charAt(retIndex)) == Character.toLowerCase(ch) && ret.charAt(retIndex) != ch) {
+            if (ret.length() > 0
+                    && Character.toLowerCase(ret.charAt(retIndex)) == Character.toLowerCase(ch)
+                    && ret.charAt(retIndex) != ch) {
                 ret.deleteCharAt(retIndex);
                 retIndex--;
             } else {
